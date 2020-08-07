@@ -1,0 +1,40 @@
+
+  <nav class="z-depth-3 blue-grey">
+    <div class="nav-wrapper">
+      <a href="#!" class="brand-logo m-3">Blog App</a>
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+        <li><a routerLink='home'>Sass</a></li>
+        <li><a routerLink='search'>Components</a></li>
+        <li><a href="#">Javascript</a></li>
+        <li><a href="#">Mobile</a></li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <ul class="sidenav" id="mobile-demo">
+    <li style="background: rgba(0,0,0,.4)">
+      <div class="user-view">
+        <div class="background">
+          <img src="{{defaultUserBackground}}">
+        </div>
+        <div>
+          <a href="#user"><img class="circle" src="{{defaultUserIcon}}"></a>
+          <a href="#name"><span class="bold white-text name">John Doe</span></a>
+          <a href="#email"><span class="bold white-text email">jdandturk@gmail.com</span></a>
+
+        </div>
+      </div>
+    </li>
+
+    <div *ngIf="!logged">
+      <li routerLinkActive="active"><a routerLink="home">Inicio</a></li>
+      <li routerLinkActive="active"><a routerLink="search">Registrarse</a></li>
+      <li routerLinkActive="active"><a routerLink="home">Javascript</a></li>
+      <li routerLinkActive="active"><a routerLink="home">Mobile</a></li>
+    </div>
+    <div *ngIf="logged">
+
+    </div>
+  </ul>
