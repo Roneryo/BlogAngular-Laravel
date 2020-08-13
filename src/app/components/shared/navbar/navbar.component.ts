@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+// import M from 'materialize-css';
+declare const M: any;
 
 @Component({
   selector: 'app-navbar',
@@ -11,13 +13,10 @@ export class NavbarComponent implements OnInit {
   defaultUserBackground: string = 'https://picsum.photos/seed/picsum/400/300';
   admin: boolean = false;
   logged: boolean = false;
-  M:any;
-  constructor() {
-
-  }
 
   ngOnInit(): void {
     M.AutoInit();
   }
-
 }
+
+

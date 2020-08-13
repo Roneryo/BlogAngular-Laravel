@@ -9,19 +9,19 @@ import { HttpClient } from '@angular/common/http';
 })
 export class HomeComponent implements OnInit {
   articulos: any = [];
-  @Output() usuarios: any = [];
 
-  urlPost: string = 'http://localhost:8000/api/posts/';
-
+  urlPost: string = 'https://blog-api-laravel.herokuapp.com/api/';
+  request: HttpClient;
   constructor(private http: HttpClient) {
-    this.getArticulos(http);
+    this.request = http;
   }
 
   ngOnInit(): void {
+    this.getData('posts');
   }
 
-  getArticulos(http: HttpClient): void {
-    http.get(this.urlPost).subscribe((data: any) => {
+  getData(route: string): void {
+    this.request.get(this.urlPost + route).subscribe((data: any) => {
       this.articulos = data;
     });
   }

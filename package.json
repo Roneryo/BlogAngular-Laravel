@@ -21,6 +21,7 @@
     "@angular/router": "~10.0.6",
     "@dicebear/avatars": "^4.2.5",
     "@dicebear/avatars-avataaars-sprites": "^4.2.5",
+    "@types/materialize-css": "^1.0.8",
     "rxjs": "~6.5.5",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.3"
