@@ -1,5 +1,5 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, Input } from '@angular/core';
+import { BlogService } from 'src/app/services/blog.service';
 
 @Component({
   selector: 'app-article',
@@ -11,23 +11,17 @@ export class ArticleComponent implements OnInit {
   @Input() articulo: any = {};
 
   usuario: any = {};
-
-  urlUsuario: string = 'https://blog-api-laravel.herokuapp.com/api/users/';
-  placeHolderImage: string = 'https://picsum.photos/200/300?grayscale';
-  request: HttpClient;
-  constructor(private http: HttpClient) {
-    this.request = this.http;
+  constructor(private blog: BlogService) {
   }
 
   ngOnInit(): void {
-    this.getUserPublished(this.articulo.id);
+    // this.getUserPublished(this.articulo.id);
+    this.blog.getOneUser(this.articulo.id)
+      .subscribe(data => {
+        this.usuario = data;
+        // console.log(data);
+      });
   }
-  getUserPublished(id: number): void {
-    this.request.get(this.urlUsuario + id).subscribe((data: any) => {
-      this.usuario = data;
-      console.log(data);
-    });
 
-  }
 
 }

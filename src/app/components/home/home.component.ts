@@ -1,5 +1,5 @@
+import { BlogService } from './../../services/blog.service';
 import { Component, OnInit, Output } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-home',
@@ -8,22 +8,23 @@ import { HttpClient } from '@angular/common/http';
   ]
 })
 export class HomeComponent implements OnInit {
-  articulos: any = [];
+  articulos: any[] = [];
 
-  urlPost: string = 'https://blog-api-laravel.herokuapp.com/api/';
-  request: HttpClient;
-  constructor(private http: HttpClient) {
-    this.request = http;
+  // urlPost: string = 'https://blog-api-laravel.herokuapp.com/api/';
+  constructor(private blog: BlogService) {
   }
-
   ngOnInit(): void {
-    this.getData('posts');
-  }
-
-  getData(route: string): void {
-    this.request.get(this.urlPost + route).subscribe((data: any) => {
+    // this.getData('posts');
+    this.blog.getPosts().subscribe((data: any) => {
       this.articulos = data;
+      console.log(data);
     });
   }
 
+  // getData(route: string): void {
+  //   this.request.get(this.urlPost + route).subscribe((data: any) => {
+  //     this.articulos = data;
+  //   });
 }
+
+

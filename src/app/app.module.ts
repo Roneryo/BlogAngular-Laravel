@@ -12,7 +12,6 @@ import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { ArticleCommentsComponent } from './components/article-comments/article-comments.component';
 //importar rutas
 import { ROUTES } from './app.routes';
-import { ScullyLibModule } from '@scullyio/ng-lib';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +25,6 @@ import { ScullyLibModule } from '@scullyio/ng-lib';
     BrowserModule,
     HttpClientModule,
     RouterModule.forRoot(ROUTES, { useHash: true }),
-    ScullyLibModule
   ],
   providers: [],
   bootstrap: [AppComponent]

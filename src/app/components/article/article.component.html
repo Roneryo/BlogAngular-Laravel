@@ -8,10 +8,13 @@
     <p>{{articulo.contenido}}</p>
   </div>
   <div class="card-reveal">
+  <app-article-comments [idPost]='articulo.id'></app-article-comments>
+
     <!-- <app-comentario-articulo
     [idPublicacion]="articulo.idPublicacion"
     [usuarios]="usuarios"
     ></app-comentario-articulo> -->
  </div>
+
 
 </div>
