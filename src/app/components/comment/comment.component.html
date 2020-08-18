@@ -1,0 +1,13 @@
+<div class="row">
+  <form class="col s12">
+    <div class="row">
+      <div class="input-field col s12">
+        <textarea #comment id="textarea1" class="materialize-textarea"></textarea>
+        <label for="textarea1">Textarea</label>
+          <a class="btn waves-effect blue-grey" type="submit" name="action" (click)="newComment(comment.value)"  >Submit
+          <i class="material-icons right">send</i>
+        </a>
+      </div>
+    </div>
+  </form>
+</div>

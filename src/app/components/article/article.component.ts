@@ -23,5 +23,7 @@ export class ArticleComponent implements OnInit {
       });
   }
 
-
+  makeComment(comment: any) {
+    console.log(comment);
+  }
 }

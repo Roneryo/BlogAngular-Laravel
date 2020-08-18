@@ -12,6 +12,7 @@ import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { ArticleCommentsComponent } from './components/article-comments/article-comments.component';
 //importar rutas
 import { ROUTES } from './app.routes';
+import { CommentComponent } from './components/comment/comment.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,6 +21,7 @@ import { ROUTES } from './app.routes';
     ArticleComponent,
     NavbarComponent,
     ArticleCommentsComponent,
+    CommentComponent,
   ],
   imports: [
     BrowserModule,

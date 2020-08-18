@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { BlogService } from 'src/app/services/blog.service';
 declare const M: any;
 
@@ -9,10 +9,13 @@ declare const M: any;
   ]
 })
 export class ArticleCommentsComponent implements OnInit {
-  @Input() idPost: number;
-  comments: any = [];
+  comments: any = {};
   user: any;
-  hasComments: number
+  hasComments: number;
+
+  @Input() idPost: number;
+
+
   constructor(private blog: BlogService) {
     // console.log(this.idPost);
     M.AutoInit();
@@ -28,5 +31,20 @@ export class ArticleCommentsComponent implements OnInit {
         this.user = this.comments.comments.user;
       });
   }
+  makeComment(comment: string) {
+    let val = {
+      comentario: comment,
+      user_id: 1,
+      estado_id: 1,
+      post_id: this.comments.id,
+    };
+    console.log(val);
+    let user = this.comments.comments[0].user.nombre;
 
+    this.comments.comments.push(val);
+    val["user"] = { nombre: 'Unlogged User' };
+    // this.blog.makeAComment(val).subscribe(data => {
+    // });
+  }
 }
+

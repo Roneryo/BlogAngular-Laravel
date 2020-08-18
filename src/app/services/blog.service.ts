@@ -24,4 +24,7 @@ export class BlogService {
   public getPostWithCommentUsers(id: number) {
     return this.http.get(this.urlPost + `posts/${id}/comments`);
   }
+  public makeAComment(post: object) {
+    return this.http.post(this.urlPost+`comments`, post);
+  }
 }

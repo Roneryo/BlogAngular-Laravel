@@ -1,24 +1,25 @@
     <span class="card-title grey-text text-darken-4">Comment Section<i class="material-icons right">close</i></span>
     <hr>
-          
+
     <div *ngIf="hasComments === 0">
       <h5>This post doesnt have any comments.</h5>
       <p>Be the first at commenting this</p>
     </div>
 
-    <ul class="collection">
+    <ul class="collection" #something  >
 
       <li class="collection-item avatar"
-      
-      
       *ngFor="let comment of comments.comments">
-        <img src="https://avatars.dicebear.com/api/gridy/{{comment.id}}.svg" alt="" class="circle">
+        <img src="https://avatars.dicebear.com/api/gridy/{{comment.user.nombre}}.svg" alt="" class="circle">
         <span class="title">{{comment.user.nombre}}</span>
         <p>{{comment.comentario}} <br>
         </p>
         <a href="#!" class="secondary-content"><i class="material-icons">favorite_border</i></a>
-      </li> 
+      </li>
     </ul>
+    <app-comment (nuevoComentario)="makeComment($event)">
+
+    </app-comment>
     <!-- <p *ngFor="let comment of comments.comments " >
       {{comment.id}}
     </p> -->
